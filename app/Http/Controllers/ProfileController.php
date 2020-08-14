@@ -145,7 +145,7 @@ class ProfileController extends Controller
         }
 
         // Send email to user to notify register success
-        auth()->user()->notify( new RegisterSuccess(auth()->user(), App::getLocale()) );
+        // auth()->user()->notify( new RegisterSuccess(auth()->user(), App::getLocale()) );
                        
 
     	return redirect('home#/purchases?new=1&lang=' . App::getLocale());
