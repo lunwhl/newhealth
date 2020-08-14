@@ -85,7 +85,7 @@ class RegisterController extends Controller
             'is_advisor' => false
         ]);
 
-        $user->saveAsRoot();
+        // $user->saveAsRoot();
         
         return $user;
     }
