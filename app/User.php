@@ -109,7 +109,7 @@ class User extends Authenticatable
         
         if($shouldRegenerate) {
             $country = Country::find($value);
-            $this->attributes['referral_code'] = $this->generateReferralCode($country);
+            // $this->attributes['referral_code'] = $this->generateReferralCode($country);
         }
     }
 
