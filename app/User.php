@@ -14,7 +14,7 @@ use Laravel\Passport\HasApiTokens;
 
 class User extends Authenticatable
 {
-    use HasApiTokens, Notifiable, SoftDeletes;
+    use HasApiTokens, Notifiable, NodeTrait, SoftDeletes;
 
     /**
      * The attributes that are mass assignable.
@@ -109,7 +109,7 @@ class User extends Authenticatable
         
         if($shouldRegenerate) {
             $country = Country::find($value);
-            // $this->attributes['referral_code'] = $this->generateReferralCode($country);
+            $this->attributes['referral_code'] = $this->generateReferralCode($country);
         }
     }
 

@@ -30,7 +30,7 @@ class RegisterController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = 'home#/purchases?new=1&lang=' . App::getLocale();
+    protected $redirectTo = '/register/success';
 
     /**
      * Create a new controller instance.
@@ -81,12 +81,11 @@ class RegisterController extends Controller
             'name' => $data['name'],
             'email' => $data['email'],
             'password' => Hash::make($data['password']),
-            // 'country_id' => $data['country'],
+            'country_id' => $data['country'],
             'is_advisor' => false
         ]);
-        // Send email to user to notify register success
-        $user->notify( new RegisterSuccess(auth()->user(), App::getLocale()) );
-        // $user->saveAsRoot();
+
+        $user->saveAsRoot();
         
         return $user;
     }
